@@ -3,5 +3,5 @@ sites/*/settings*.php
 
 # Ignore paths that contain user-generated content.
 www/sites/default/files
-www/sites/default/settings.ph
+www/sites/default/settings.php
 www/.sass-cache
