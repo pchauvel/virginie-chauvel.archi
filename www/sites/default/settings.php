@@ -785,10 +785,10 @@ $settings['entity_update_batch_size'] = 50;
 # }
 $databases['default']['default'] = array (
   'database' => 'virginieuzarchi',
-  'username' => 'virginieuzarchi',
-  'password' => 'dQ89ruC8',
+  'username' => 'root',
+  'password' => 'poivrine',
   'prefix' => '',
-  'host' => 'virginieuzarchi.mysql.db',
+  'host' => 'localhost',
   'port' => '3306',
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'driver' => 'mysql',
