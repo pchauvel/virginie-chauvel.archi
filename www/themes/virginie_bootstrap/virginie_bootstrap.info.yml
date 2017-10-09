@@ -22,3 +22,4 @@ regions:
 libraries:
   - 'virginie_bootstrap/global-styling'
   - 'virginie_bootstrap/bootstrap-scripts'
+  - 'virginie_bootstrap/fonts'
