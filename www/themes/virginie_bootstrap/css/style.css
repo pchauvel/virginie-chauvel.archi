@@ -6384,7 +6384,28 @@ p:last-child,
 #block-diplomes {
   width: 33%;
   float: left;
-  padding: 0px 20px; }
+  padding: 0px 20px;
+    text-align: center;
+    line-height: 1.6;
+    height: 250px;
+    position:relative;;
+}
+#block-lebim:after,
+#block-actualite:after{
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    content: "";
+    width: 1px;
+    height: 100%;
+    background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(219,219,219,1) 50%, rgba(255,255,255,0) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(50%,rgba(219,219,219,1)), color-stop(100%,rgba(255,255,255,0)));
+    background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(219,219,219,1) 50%,rgba(255,255,255,0) 100%);
+    background: -o-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(219,219,219,1) 50%,rgba(255,255,255,0) 100%);
+    background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(219,219,219,1) 50%,rgba(255,255,255,0) 100%);
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(219,219,219,1) 50%,rgba(255,255,255,0) 100%);
+}
 
 .field--name-body img {
   margin-right: 20px; }
@@ -6403,7 +6424,6 @@ p:last-child,
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%); }
   .view-realisations .views-row .views-field-title a {
-    font-family: Roboto;
     position: absolute;
     z-index: 1;
     width: 200px;
@@ -6427,3 +6447,86 @@ p:last-child,
   .realisation .field.field--name-field-image .field--item {
     float: left;
     border: 2px solid white; }
+
+body{
+    background-image:url(../images/fond-header.png);
+    background-position: top center;
+    background-repeat: repeat-x;
+}
+body.toolbar-horizontal{
+    background-position: top 40px center;
+}
+body.toolbar-tray-open{
+    background-position: top 80px center;
+}
+.navbar-default {
+    background: none;
+    border: none;
+    height: 135px;
+}
+#navbar-collapse {
+    margin-top: 100px;
+    border-bottom: 1px solid black;
+}
+.navbar-default .navbar-nav > li > a{
+    text-transform: uppercase;
+    color: black;
+    font-size: 1.5em;
+    background: none;
+}
+.navbar-header {
+    position: relative;
+    left: 145px;
+    top: -21px;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a.is-active,
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus{
+    color: #E5B02D;
+    transition-duration: 0.2s;
+    background: none;
+}
+.region-navigation{
+    position: relative;;
+}
+.navbar-nav {
+    width: 100%;
+}
+.navbar-brand {
+    background:url(../images/initiales.png) no-repeat 51px 3px;
+    padding: 18px 0 0 83px;
+    height: 86px;
+}
+a.navbar-brand::first-letter,
+p.navbar-text::first-letter{
+    color: transparent;
+}
+p.navbar-text {
+    float: none;
+    position: absolute;
+    left: 95px;
+    top: 49px;
+}
+.navbar-text .HMNOP {
+    color: #E5B02D;
+    display: block;
+    background: white;
+    margin-left: 40px;
+    width: 80px;
+}
+
+html,
+body {
+    font-family: "Open Sans";
+}
+.nav > li {
+    width: 25%;
+    text-align: center;
+}
+.page-header {
+    padding-bottom: 0px;
+    margin: 0px;
+    border: none;
+}
