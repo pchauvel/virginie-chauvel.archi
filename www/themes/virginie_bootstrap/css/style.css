@@ -6076,7 +6076,7 @@ body {
     padding-bottom: 65px; }
   @media screen and (min-width: 768px) {
     body {
-      margin-top: 15px; } }
+      /* margin-top: 15px; */} }
   @media screen and (max-width: 767px) {
     body.toolbar-vertical.navbar-is-fixed-top .toolbar-bar, body.toolbar-vertical.navbar-is-fixed-bottom .toolbar-bar {
       position: fixed; }
@@ -6377,7 +6377,7 @@ p:last-child,
     font-weight: bold;
     font-size: 25px; }
 
-#block-lebim,
+#block-bim,
 #block-actualite,
 #block-experience,
 #block-experiences,
@@ -6390,7 +6390,7 @@ p:last-child,
     height: 250px;
     position:relative;;
 }
-#block-lebim:after,
+#block-bim:after,
 #block-actualite:after{
     display: block;
     position: absolute;
@@ -6413,43 +6413,68 @@ p:last-child,
 .block-title {
   text-align: center; }
 
-.view-realisations .views-row {
-  float: left;
-  border: 2px solid white;
-  position: relative; }
-  .view-realisations .views-row img {
+.view-realisations .views-row,
+.view-taxonomy-term .views-row{
+    
+	float: left;
+    border-bottom: 2px solid black;
+    position: relative;
+    margin: 16px;
+ }
+.view-realisations .views-row:hover,
+.view-taxonomy-term .views-row:hover {
+    border-color: #E5B02D;
+}
+.view-realisations .views-field-field-lieu,
+.view-realisations .views-field-field-phase,
+.view-realisations .views-field-field-type,
+.view-taxonomy-term .views-field-field-lieu,
+.view-taxonomy-term .views-field-field-phase,
+.view-taxonomy-term .views-field-field-type,{
+    float: left;
+    margin: 5px 10px 5px 0;
+    font-size: 10px;
+}
+.view-realisations .views-row img,
+.view-taxonomy-term .views-row img{
     -webkit-filter: grayscale(0%);
     filter: grayscale(0%); }
-  .view-realisations .views-row img:hover {
+.view-realisations .views-row img:hover,
+.view-taxonomy-term .views-row img:hover{
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%); }
-  .view-realisations .views-row .views-field-title a {
+.view-realisations .views-row .views-field-title a,
+.view-taxonomy-term .views-row .views-field-title a{
     position: absolute;
     z-index: 1;
-    width: 200px;
-    height: 200px;
-    padding-top: 85px;
+    width: 250px;
+    height: 150px;
+    padding-top: 65px;
     color: transparent;
     text-align: center;
     display: block;
     -webkit-transition: background-color 1s ease;
     /* Safari */
     transition: background-color 1s ease; }
-  .view-realisations .views-row .views-field-title a:hover {
+  .view-realisations .views-row .views-field-title a:hover,
+  .view-taxonomy-term .views-row .views-field-title a:hover{
     background: rgba(250, 250, 250, 0.7);
     font-weight: bold;
     font-size: 20px;
     text-decoration: none;
     color: black; }
 
-.realisation .field.field--name-field-image {
-  clear: both; }
-  .realisation .field.field--name-field-image .field--item {
+.realisation .field.field--name-field-image,
+.view-taxonomy-term  .field.field--name-field-image{
+    clear: both;
+}
+.realisation .field.field--name-field-image .field--item,
+.view-taxonomy-term .field.field--name-field-image .field--item{
     float: left;
     border: 2px solid white; }
 
 body{
-    background-image:url(../images/fond-header.png);
+    background-image:url(../images/fond-body.png);
     background-position: top center;
     background-repeat: repeat-x;
 }
@@ -6475,9 +6500,9 @@ body.toolbar-tray-open{
     background: none;
 }
 .navbar-header {
-    position: relative;
+   /* position: relative;
     left: 145px;
-    top: -21px;
+    top: -21px; */
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a.is-active,
@@ -6494,20 +6519,33 @@ body.toolbar-tray-open{
 .navbar-nav {
     width: 100%;
 }
+.navbar-header{
+    background:url(../images/fond-header.png) no-repeat -15px 1px;
+	height: 111px;
+	width: 206px;
+}
+.navbar-text{
+	float: none;
+}
 .navbar-brand {
-    background:url(../images/initiales.png) no-repeat 51px 3px;
-    padding: 18px 0 0 83px;
-    height: 86px;
+	padding: 0px;
+	height: auto;
+	margin: 13px 0 0 18px
 }
 a.navbar-brand::first-letter,
 p.navbar-text::first-letter{
     color: transparent;
 }
+.region.region-navigation {
+    margin-left: 31px;
+}
 p.navbar-text {
-    float: none;
-    position: absolute;
-    left: 95px;
-    top: 49px;
+    margin-left: 31px;
+}
+p.navbar-text {
+       clear: both;
+    padding: 19px 0 0 39px;
+    margin: 0;
 }
 .navbar-text .HMNOP {
     color: #E5B02D;
@@ -6529,4 +6567,124 @@ body {
     padding-bottom: 0px;
     margin: 0px;
     border: none;
+}
+/* Mise en avant acccueil */
+.view-frontpage .views-field-title {
+    float: left;
+    background: rgba(255,255,255,0.7);
+    position: absolute;
+    top: 110px;
+    right: 0;
+    padding: 10px 20px;
+}
+.view-frontpage .views-field-title a{
+	font-size: 15px;
+	color: black;
+	text-decoration: none;
+}
+.path-frontpage h1{
+	display: none;
+}
+/* Carrousel photos evenements */
+.page-node-type-realisation .views_slideshow_pager_field_item .img-responsive {
+    max-width: 150px;
+}
+.page-node-type-realisation .views_slideshow_pager_field_item {
+    float: left;
+    border-bottom: 2px solid white;
+    cursor: pointer;
+}
+.page-node-type-realisation .views_slideshow_pager_field_item:hover {
+    border-color: #E5B02D;
+}
+.field--name-field-maitrise-d-ouvrage,
+.field--name-field-surface-habitable,
+.field--name-field-montant,
+.field--name-field-lieu,
+.field--name-field-phase,
+.field--name-field-type{
+    position: absolute;
+    right: 0px;
+    background: rgba(255,255,255,0.7);
+    z-index: 50;
+    padding: 10px 20px;
+    width: 225px;
+}
+.field--name-body {
+    padding: 20px 0;
+}
+.field--name-field-maitrise-d-ouvrage{
+    top: 135px
+}
+.field--name-field-surface-habitable{
+    top: 175px
+}
+.field--name-field-montant{
+    top: 2155px
+}
+.field--name-field-lieu{
+    top: 255px
+}
+.field--name-field-phase{
+    top: 295px
+}
+.field--name-field-type{
+    top: 335px
+}
+
+/* Gestion du pager image du carrousel */
+.views-content-field-image li{
+    display: none;
+}
+#views_slideshow_pager_field_item_top_carrousel_realisation-block_1_0 .views-content-field-image ul li:nth-child(1),
+#views_slideshow_pager_field_item_top_carrousel_realisation-block_1_1 .views-content-field-image ul li:nth-child(2),
+#views_slideshow_pager_field_item_top_carrousel_realisation-block_1_2 .views-content-field-image ul li:nth-child(3),
+#views_slideshow_pager_field_item_top_carrousel_realisation-block_1_3 .views-content-field-image ul li:nth-child(4),
+#views_slideshow_pager_field_item_top_carrousel_realisation-block_1_4 .views-content-field-image ul li:nth-child(5),
+#views_slideshow_pager_field_item_top_carrousel_realisation-block_1_5 .views-content-field-image ul li:nth-child(6),
+#views_slideshow_pager_field_item_top_carrousel_realisation-block_1_6 .views-content-field-image ul li:nth-child(7),
+#views_slideshow_pager_field_item_top_carrousel_realisation-block_1_7 .views-content-field-image ul li:nth-child(8),
+#views_slideshow_pager_field_item_top_carrousel_realisation-block_1_8 .views-content-field-image ul li:nth-child(9),
+#views_slideshow_pager_field_item_top_carrousel_realisation-block_1_9 .views-content-field-image ul li:nth-child(10),
+#views_slideshow_pager_field_item_top_carrousel_realisation-block_1_10 .views-content-field-image ul li:nth-child(11),
+#views_slideshow_pager_field_item_top_carrousel_realisation-block_1_11 .views-content-field-image ul li:nth-child(12),
+#views_slideshow_pager_field_item_top_carrousel_realisation-block_1_12 .views-content-field-image ul li:nth-child(13),
+#views_slideshow_pager_field_item_top_carrousel_realisation-block_1_13 .views-content-field-image ul li:nth-child(14),
+#views_slideshow_pager_field_item_top_carrousel_realisation-block_1_14 .views-content-field-image ul li:nth-child(15),
+#views_slideshow_pager_field_item_top_carrousel_realisation-block_1_15 .views-content-field-image ul li:nth-child(16),
+#views_slideshow_pager_field_item_top_carrousel_realisation-block_1_16 .views-content-field-image ul li:nth-child(17),
+#views_slideshow_pager_field_item_top_carrousel_realisation-block_1_17 .views-content-field-image ul li:nth-child(18){
+    display: block;
+}
+.views-slideshow-controls-top {
+    float: right;
+    width: 350px;
+}
+
+.navbar-default{
+    height: auto
+}
+
+section#block-views-block-carrousel-realisation-block-2{
+    width: 250px;
+    background: rgba(255,255,255,0.8);
+    position: absolute;
+    top: 230px;
+    left: 565px;
+    z-index: 50;
+
+    padding: 10px 20px;
+}
+
+#block-views-block-carrousel-realisation-block-2 .field-content {
+    display: inline-block;
+    font-weight: bold;
+    color: black;
+    margin: 5px 5px;
+}
+#block-views-block-carrousel-realisation-block-2 .field-content a{
+    color:black;
+}
+a.colorbox.cboxElement {
+    cursor: zoom-in;
 }
