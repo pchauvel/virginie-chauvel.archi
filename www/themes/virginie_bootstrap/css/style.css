@@ -6446,6 +6446,7 @@ p:last-child,
 .view-realisations .views-row .views-field-title a,
 .view-taxonomy-term .views-row .views-field-title a{
     position: absolute;
+    top:0;
     z-index: 1;
     width: 250px;
     height: 150px;
@@ -6564,7 +6565,7 @@ body {
     text-align: center;
 }
 .page-header {
-    padding-bottom: 0px;
+    padding-bottom: 20px;
     margin: 0px;
     border: none;
 }
@@ -6589,14 +6590,19 @@ body {
 .page-node-type-realisation .views_slideshow_pager_field_item .img-responsive {
     max-width: 150px;
 }
-.page-node-type-realisation .views_slideshow_pager_field_item {
-    float: left;
+.page-node-type-realisation .views_slideshow_pager_field_item{
+  float: left;
+  cursor: pointer;
+}
+.page-node-type-realisation .views_slideshow_pager_field_item img {
+  padding-bottom:3px;
     border-bottom: 2px solid white;
     cursor: pointer;
 }
-.page-node-type-realisation .views_slideshow_pager_field_item:hover {
+.page-node-type-realisation .views_slideshow_pager_field_item img:hover {
     border-color: #E5B02D;
 }
+/*
 .field--name-field-maitrise-d-ouvrage,
 .field--name-field-surface-habitable,
 .field--name-field-montant,
@@ -6630,7 +6636,7 @@ body {
 }
 .field--name-field-type{
     top: 335px
-}
+}*/
 
 /* Gestion du pager image du carrousel */
 .views-content-field-image li{
@@ -6657,8 +6663,8 @@ body {
     display: block;
 }
 .views-slideshow-controls-top {
-    float: right;
-    width: 350px;
+  position: absolute;
+  top: 470px;
 }
 
 .navbar-default{
@@ -6687,4 +6693,63 @@ section#block-views-block-carrousel-realisation-block-2{
 }
 a.colorbox.cboxElement {
     cursor: zoom-in;
+}
+.footer{
+  margin-top: 300px;
+  padding-top: 10px;
+  text-align: center;
+  background: #888574;
+  width: 100%;
+}
+.footer,
+.footer a{
+  color: white;
+}
+.page-node-type-realisation article {
+  width: 333px;
+  float: right;
+  z-index: 5;
+}
+.content .field {
+  padding: 5px;
+}
+.page-node-type-realisation article .content .field--item,
+.page-node-type-realisation article .content .field a{
+  color: black;
+  font-weight: bold;
+
+}
+.page-node-type-realisation .content .field--name-body{
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+.field--label{
+  font-weight: normal;
+}
+.views-content-field-image ul{
+  padding-left:0;
+  margin-left: 1.5em;
+}
+.region.region-footer {
+  width: 1170px;
+  margin: 0 auto;
+}
+.footer nav {
+  float: left;
+}
+.footer h2{
+  font-size: 15px;
+  text-align: left;
+}
+.footer .nav > li{
+  width:auto;
+  text-align: left;
+}
+footer .nav > li a {
+  padding: 2px 15px;
+  font-size: 12px;
+}
+footer .nav > li a:hover {
+  background: #E5B02D;
 }
