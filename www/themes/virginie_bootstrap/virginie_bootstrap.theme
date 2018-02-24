@@ -5,3 +5,11 @@
  *
  * Place your custom PHP code in this file.
  */
+function virginie_bootstrap_entity_view_alter(array &$build, Drupal\Core\Entity\EntityInterface $entity, \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display) {
+  drupal_set_message("dnas mon noeud");
+  dsm($entity);
+  die;
+  echo("Au sein de l'agence Greffe Architecture à Claira (66)
+        Participation à la réalisation d'un permis de construire pour une cave viticole,
+        avec une salle d’œnologie, et un espace de vente et d’accueil du public.");
+  }
