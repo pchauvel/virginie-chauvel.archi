@@ -6833,6 +6833,49 @@ section#block-cartedevisite {
   margin-right: 75px;
 
 }
+
+
+
+/*
+ *    tickets 
+ */
+ 
+.page-node-type-ticket .content .field--name-body{
+    background-color: #FFFFDD;
+    padding: 20px;
+    border: 1px solid #ccc;
+    padding-top: 100px;
+}
+.page-node-type-ticket .content section h2,
+.page-node-type-ticket .content article h3{
+	display: none;
+}
+.page-node-type-ticket .content article{
+	border-top: 1px dotted #ccc;
+}
+.page-node-type-ticket ul.links {
+    float: right;
+}
+.page-node-type-ticket ul.links a {
+    padding: 10px;
+    position: relative;
+    top: 11px;
+    right: -5px;
+    border: 1px solid #ccc;
+}
+.page-node-type-ticket ul.links a:hover{
+	text-decoration: none;
+	background: #FFDDDD;;
+}
+	
+
+
+
+
+
+
+
+
 @media (max-width: 768px) {
   .nav > li {
     width: auto;
