@@ -94,10 +94,11 @@ class ImagefieldSlideshowFieldFormatter extends ImageFormatterBase implements Co
       // Implement default settings.
       'imagefield_slideshow_style' => 'large',
       'imagefield_slideshow_style_effects' => 'fade',
-      'imagefield_slideshow_style_pause' => '1',
+      'imagefield_slideshow_style_pause' => 'false',
       'imagefield_slideshow_prev_next' => FALSE,
       'imagefield_slideshow_transition_speed' => FALSE,
       'imagefield_slideshow_timeout' => FALSE,
+      'imagefield_slideshow_pager' => FALSE,
     ) + parent::defaultSettings();
   }
 
@@ -122,33 +123,37 @@ class ImagefieldSlideshowFieldFormatter extends ImageFormatterBase implements Co
     ];
     $effects = [
       'none' => 'none',
-      'blindX' => 'blindX',
-      'blindY' => 'blindY',
-      'blindZ' => 'blindZ',
-      'cover' => 'cover',
-      'curtainX' => 'curtainX',
-      'curtainY' => 'curtainY',
+//      'blindX' => 'blindX',
+//      'blindY' => 'blindY',
+//      'blindZ' => 'blindZ',
+//      'cover' => 'cover',
+//      'curtainX' => 'curtainX',
+//      'curtainY' => 'curtainY',
       'fade' => 'fade',
-      'fadeZoom' => 'fadeZoom',
-      'growX' => 'growX',
-      'growY' => 'growY',
-      'scrollUp' => 'scrollUp',
-      'scrollDown' => 'scrollDown',
-      'scrollLeft' => 'scrollLeft',
-      'scrollRight' => 'scrollRight',
+      'fadeout' => 'fadeout',
+//      'fadeZoom' => 'fadeZoom',
+//      'growX' => 'growX',
+//      'growY' => 'growY',
+//      'scrollUp' => 'scrollUp',
+//      'scrollDown' => 'scrollDown',
+//      'scrollLeft' => 'scrollLeft',
+//      'scrollRight' => 'scrollRight',
       'scrollHorz' => 'scrollHorz',
-      'scrollVert' => 'scrollVert',
+//      'scrollVert' => 'scrollVert',
+//      'shuffle' => 'shuffle',
+//      'slideX' => 'slideX',
+//      'slideY' => 'slideY',
+//      'toss' => 'toss',
+//      'turnUp' => 'turnUp',
+//      'turnDown' => 'turnDown',
+//      'turnLeft' => 'turnLeft',
+//      'turnRight' => 'turnRight',
+//      'uncover' => 'uncover',
+//      'wipe' => 'wipe',
+//      'zoom' => 'zoom',
+      'flipHorz' => 'flipHorz',
+      'flipVert' => 'flipVert',
       'shuffle' => 'shuffle',
-      'slideX' => 'slideX',
-      'slideY' => 'slideY',
-      'toss' => 'toss',
-      'turnUp' => 'turnUp',
-      'turnDown' => 'turnDown',
-      'turnLeft' => 'turnLeft',
-      'turnRight' => 'turnRight',
-      'uncover' => 'uncover',
-      'wipe' => 'wipe',
-      'zoom' => 'zoom',
     ];
     $element['imagefield_slideshow_style_effects'] = [
       '#type' => 'select',
@@ -158,8 +163,8 @@ class ImagefieldSlideshowFieldFormatter extends ImageFormatterBase implements Co
       '#description' => t("The transition effect that will be used to change between images. Not all options below may be relevant depending on the effect. <a href='http://jquery.malsup.com/cycle/browser.html' target='_black'>Follow this link to see examples of each effect.</a>"),
     ];
     $image_pause = [
-      '1' => 'Yes',
-      '' => 'No'
+      'true' => "Yes",
+      'false' => "No"
     ];
     $element['imagefield_slideshow_style_pause'] = [
       '#title' => t("Image pause"),
@@ -191,6 +196,12 @@ class ImagefieldSlideshowFieldFormatter extends ImageFormatterBase implements Co
       '#options' => $timeout,
       '#default_value' => $this->getSetting('imagefield_slideshow_timeout'),
       '#description' => t("The timeout for slides."),
+    ];
+    $element['imagefield_slideshow_pager'] = [
+      '#title' => $this->t("Enable Pager ?"),
+      '#type' => 'checkbox',
+      '#default_value' => $this->getSetting('imagefield_slideshow_pager'),
+      '#description' => $this->t('This will show the Pager on slideshow.'),
     ];
     return $element;
   }
@@ -239,6 +250,11 @@ class ImagefieldSlideshowFieldFormatter extends ImageFormatterBase implements Co
       $summary[] .= t("Timeout :" . $image_slideshow_timeout);
     }
 
+    $image_pager = $this->getSetting('imagefield_slideshow_pager');
+    if ($image_pager) {
+      $summary[] .= t("Pager :" . $image_pager);
+    }
+
     return $summary;
   }
 
@@ -279,20 +295,15 @@ class ImagefieldSlideshowFieldFormatter extends ImageFormatterBase implements Co
       '#theme' => 'imagefield_slideshow',
       '#url' => $image_uri_values,
       '#prev_next' => $prev_next,
+      '#effect' => $this->getSetting('imagefield_slideshow_style_effects'),
+      '#pause' => $this->getSetting('imagefield_slideshow_style_pause'),
+      '#speed' => $this->getSetting('imagefield_slideshow_transition_speed'),
+      '#timeout' => $this->getSetting('imagefield_slideshow_timeout'),
+      '#pager' => $this->getSetting('imagefield_slideshow_pager'),
     );
 
     // Attach the image field slide show library.
     $elements['#attached']['library'][] = 'imagefield_slideshow/imagefield_slideshow';
-
-    // Attach the drupal
-    $drupalSettings = [
-      'effect' => $this->getSetting('imagefield_slideshow_style_effects'),
-      'pause' => $this->getSetting('imagefield_slideshow_style_pause'),
-      'prev_next' => $prev_next,
-      'speed' => $this->getSetting('imagefield_slideshow_transition_speed'),
-      'timeout' => $this->getSetting('imagefield_slideshow_timeout'),
-    ];
-    $elements['#attached']['drupalSettings']['imagefield_slideshow'] = $drupalSettings;
 
     // Not to cache this field formatter.
     $elements['#cache']['max-age'] = 0;
