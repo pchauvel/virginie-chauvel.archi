@@ -8,11 +8,7 @@ module can can store data as Latitude and Longitude, Bounding Box and Well
 Known Text (WKT) and it supports all types of geographical data: points,
 lines, polygons, multi-types etc.
 
-Further documentation on Geofield can be found at the [Geofield Drupal.org Community
-Documentation page](http://drupal.org/node/1089574)
-
-INSTALL
--------
+###Install
 
 Install the modules Geofield and geoPHP in the usual way. General information
 on installing Drupal modules can be found here: http://drupal.
@@ -24,7 +20,7 @@ which will also download , which will also download the required GeoPHP library
 dependency. It means simply running the following command from your project root
 (where the main composer.json file is sited):
 
-__$ composer require 'drupal/geofield_map'__
+__$ composer require drupal/geofield__
 
 and then enable the module in the usual way, from the extend/modules backend
 interfaces or via drush with the following command:
@@ -32,14 +28,12 @@ interfaces or via drush with the following command:
 __$ drush en geofield__
 
 
-CONFIGURE
----------
+###Configure
 
 Once enabled the module it will be possible to add a "Geofield" field type to 
 any entity type/bundle and then choose the preferred widget or formatter.
 
-MAPPING WITH GEOFIELD
-----------
+###Mapping with Geofield
 
 It is possible to implement advanced Mapping and Geocoding functionalities 
 adding compatible and specialized modules for Drupal 8, such as:
@@ -53,20 +47,28 @@ Drupal 8, based on Geofield
  - __[Geocoder for D8](https://www.drupal.org/project/geocoder)__: Geocode string & text addresses or file-uploads into Geofield locations and viceversa (Reverse Geocode)
  
 
-CREDITS
--------
-Original author:  Tristan O'Neil
-Contributors :    Alex Barth, Jeff Miccolis, Young Hahn, Tom MacWright,
-                  Patrick Hayes, Dave Tarc, Nikhil Trivedi, Marek Sotak,
-                  Khalid Jebbari, Brandon Morrison, David Peterson, Italo Mairo
+###Authors/Credits
 
-API NOTES
----------
+Original author (Drupal 7):  
+ [tristanoneil](https://www.drupal.org/user/340659)
+ 
+Contributors for Drupal 8:    
+[brandonian](https://www.drupal.org/u/brandonian)  
+[plopesc](https://www.drupal.org/u/plopesc)  
+[itamair](https://www.drupal.org/u/itamair)  
+
+####Roadmap
+
+* Re-implement the Views proximity filter/field for Drupal 8
+* Test coverage verification and finalization
+
+###Api Notes
+
 Geofield fields contain nine columns of information about the geographic data
 that is stores. At its heart is the 'wkt' column where it stores the full
 geometry in the 'Well Known Text' (WKT) format. All other columns are metadata
 derived from the WKT column. Columns are as follows:
-
+```
   'wkt'          WKT
   'geo_type'     Type of geometry (point, linestring, polygon etc.)
   'lat'          Centroid (Latitude or Y)
@@ -75,3 +77,4 @@ derived from the WKT column. Columns are as follows:
   'bottom'       Bounding Box Bottom (Latitude or Min Y)
   'left'         Bounding Box Left (Longitude or Min X)
   'right'        Bounding Box Right (Longitude or Max X)
+  ```

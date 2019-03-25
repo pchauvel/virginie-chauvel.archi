@@ -1,14 +1,8 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\geofield\Plugin\Field\FieldWidget\GeofieldDefaultWidget.
- */
-
 namespace Drupal\geofield\Plugin\Field\FieldWidget;
 
 use Drupal\Core\Field\FieldItemListInterface;
-use Drupal\Core\Field\WidgetBase;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
@@ -16,13 +10,14 @@ use Drupal\Core\Form\FormStateInterface;
  *
  * @FieldWidget(
  *   id = "geofield_default",
- *   label = @Translation("Geofield"),
+ *   label = @Translation("Geofield (WKT)"),
  *   field_types = {
  *     "geofield"
  *   }
  * )
  */
-class GeofieldDefaultWidget extends WidgetBase {
+class GeofieldDefaultWidget extends GeofieldBaseWidget {
+
   /**
    * {@inheritdoc}
    */
@@ -38,13 +33,13 @@ class GeofieldDefaultWidget extends WidgetBase {
    * {@inheritdoc}
    */
   public function massageFormValues(array $values, array $form, FormStateInterface $form_state) {
-    $geophp = \Drupal::service('geofield.geophp');
     foreach ($values as $delta => $value) {
-      if ($geom = $geophp->load($value['value'])) {
+      /* @var \Geometry $geom */
+      if ($geom = $this->geoPhpWrapper->load($value['value'])) {
         $values[$delta]['value'] = $geom->out('wkt');
       }
     }
-
     return $values;
   }
+
 }
